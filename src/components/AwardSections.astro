@@ -1,0 +1,32 @@
+---
+import students from '../data/student-awards.json';
+import contributions from '../data/contribution-awards.json';
+const { showStudents = true, showContributions = true, showDescriptions = true } = Astro.props;
+const meetings = [...new Set(students.map(item => item.meeting))].sort((a,b) => b-a);
+---
+{showStudents && <section class="award-section" id="student-awards">
+  <h2>2026年度学生奨励賞受賞者</h2>
+  {showDescriptions && <p>2026年度に開催されたHCI研究会における学生奨励賞の受賞者は以下の通りです。受賞された皆様、おめでとうございます。</p>}
+  {meetings.map(meeting => <div class="award-group">
+    <h3>第{meeting}回研究会</h3>
+    {students.filter(item => item.meeting === meeting).map(item => <p><strong>{item.name}（{item.affiliation}）</strong><br /><span class="paper-title">「{item.title}」</span></p>)}
+  </div>)}
+</section>}
+{showContributions && <section class="award-section" id="contribution-awards">
+  <h2>HCI研究会貢献賞受賞者</h2>
+  {showDescriptions && <p>HCI研究会貢献賞の受賞者は以下の通りです。受賞された皆様、おめでとうございます。</p>}
+  {contributions.map(person => <div class="award-group">
+    <h3>{person.name}（{person.affiliation}{person.secondAward ? '、2回目の受賞' : ''}）</h3>
+    <p>1年間に以下の3件の発表があったことに対して：</p>
+    <ul>{person.presentations.map(presentation => <li>HCI{presentation.meeting}「{presentation.title}」</li>)}</ul>
+  </div>)}
+</section>}
+<style>
+.award-section {margin-block:2.5rem;}
+.award-group {margin-block:1.6rem;}
+.award-group h3 {margin-bottom:.65rem;}
+.award-group p {margin-block:.5rem;}
+.award-group ul {margin-top:.35rem;padding-left:1.6rem;}
+.award-group li {margin-block:.35rem;}
+.paper-title {padding-left:1.1rem;}
+</style>

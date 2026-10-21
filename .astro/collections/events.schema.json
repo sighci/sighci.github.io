@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "number": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "startDate": {
+      "type": "string"
+    },
+    "endDate": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "place": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "venue": {
+      "type": "string"
+    },
+    "access": {
+      "type": "string"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "number",
+    "startDate",
+    "endDate",
+    "date",
+    "place",
+    "status",
+    "venue",
+    "access"
+  ]
+}

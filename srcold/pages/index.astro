@@ -1,0 +1,84 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+import EventList from '../components/EventList.astro';
+
+---
+<DefaultLayout title="Home">
+  <section class="margin-64">
+    <div class="container">
+      <div class="grid">
+        <div class="small-12">
+          <h1>ようこそ 情報処理学会<br>
+            ヒューマンコンピュータインタラクション研究会へ</h1>
+        </div>
+        <div class="small-12 medium-10 offset-medium-1 space-content">
+          <p>
+            情報処理学会・ヒューマンコンピュータインタラクション研究会は，可視化，可聴化や可触化，仮想／拡張現実といったマルチメディア／マルチモーダル表現処理技法，入出力デバイスやウェアラブルコンピューティング，ユビキタスコンピューティングといった情報処理技術，それらを利用した情報や知識の探索／表出／創造／共有／共創／学習／理解の支援技法，ユーザビリティデザインやユニバーサルデザインといったデザイン手法，インタラクションデザインやエクスペリエンスデザインといったデザイン方法論とアプローチ，インタラクティブアートやオンラインコミュニティといった計算機技術により可能となる人間のアクティビティの実現／モデル化，などといった分野における諸課題に，計算機科学，ソフトウェア科学，情報科学，さらには認知科学，社会科学，文化人類学，教育学，組織論，経営学，メディア論，芸術といった人文科学の融合を通して，理論，モデル，技術，応用および評価手法といった側面から取り組む研究者，および実務者のためのコミュニティです．
+          </p>
+          
+          <p>
+          年5回程度開催する研究発表会，毎夏に開催するヒューマンコンピュータインタラクションプロフェッショナル(HCIP)ワークショップ，および毎年初春に開催するインタラクションシンポジウム（グループウェアとネットワークサービス研究会，ユビキタスコンピューティングシステム研究会およびエンタティンメントコンピューティング研究会との共催），といったイベントや，研究発表会毎に発行する研究報告書，メーリングリストなどを介して，建設的な議論と情報交換の場を提供します．
+          </p>
+    
+          <p>
+          メーリングリスト、研究会への登録をご希望の方は こちら へ．
+          </p>
+    
+          <p>
+          2007年に，ヒューマンインタフェース研究会からヒューマンコンピュータインタラクション研究会に名称変更しました． 「インタフェースからインタラクションへ」(PDF)
+          </p>
+    
+          <p>
+          2014年度開催の研究会に関して，情報処理学会　情報環境領域（IEプロジェクト）からの支援により託児サービスの無償提供を行っています．詳細は各回研究会の参加要項をご確認いただき，希望する場合には，各回研究会担当までお問い合わせください．
+          </p>
+    
+          <p>
+          情報処理学会のプライバシーポリシーが改訂されました．https://www.ipsj.or.jp/privacypolicy.html
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="margin-64">
+    <div class="container">
+      <div class="grid">
+        <div class="small-12">
+          <h2>研究会・イベント</h2>
+        </div>
+        <!--<div class="small-12 medium-10 offset-medium-1 space-content"> -->
+        <div class="small-12 medium-12">
+            <EventList/>
+         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="margin-64">
+    <div class="container">
+      <div class="grid">
+        <div class="small-12">
+          <h2>2022年度学生奨励賞受賞者</h2>
+        </div>
+        <div class="small-12 medium-10 offset-medium-1 space-content">
+          <p>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="margin-64">
+    <div class="container">
+      <div class="grid">
+        <div class="small-12">
+          <h2>HCI研究会貢献賞受賞者</h2>
+        </div>
+        <div class="small-12 medium-10 offset-medium-1 space-content">
+          <p>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</DefaultLayout>

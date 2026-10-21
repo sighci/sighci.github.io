@@ -1,0 +1,5 @@
+---
+const {firstPage,previousPage,nextPage,lastPage,currentPage,totalPages}=Astro.props;
+---
+<nav aria-label="Blog pagination" class="pagination">{firstPage && <a href={firstPage}>« First</a>}{previousPage && <a href={previousPage}>‹ Previous</a>}<span>Page {currentPage} / {totalPages}</span>{nextPage && <a href={nextPage}>Next ›</a>}{lastPage && <a href={lastPage}>Last »</a>}</nav>
+<style>.pagination{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}</style>

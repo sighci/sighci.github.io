@@ -1,0 +1,94 @@
+---
+import Navigation from '../components/Navigation.astro'
+import SkipLinks from './SkipLinks.astro'
+---
+
+<header>
+  <SkipLinks />
+  <Navigation>
+    <li class="menu-item">
+      <a href="/">Home</a>
+    </li>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">Events</button>
+      <ul>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage1/">研究発表会への参加</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage2/">活動予定</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage3/">開催済の研究会・イベント</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">Reports</button>
+      <ul>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage1/">研究報告（情報学広場）</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage2/">研究報告（事前一括入手）</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">Archive</button>
+      <ul>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage1/">受賞者一覧</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage2/">会議参加報告</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage2/">以前の活動履歴</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage2/">旧SIGHCI Webサイト</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">About</button>
+      <ul>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage1/">研究会活動に参加したい</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage2/">研究会運営委員一覧</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage3/">ロゴデータ</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage3/">問い合わせ</a>
+        </li>
+      </ul>
+    </li>
+
+  </Navigation>
+</header>
+
+<style lang="scss">
+  @use '../assets/scss/base/breakpoint' as *;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    @include breakpoint(medium) {
+      flex-wrap: nowrap;
+    }
+
+    img {
+      max-height: 40px;
+    }
+  }
+</style>

@@ -1,0 +1,226 @@
+[
+  {
+    "role": "主査",
+    "name": "坂本 大介",
+    "affiliation": "北海道大学大学院 情報科学研究科",
+    "website": "https://daisukesakamoto.jp/",
+    "research": "ユーザインタフェース、インタラクションデザイン、ヒューマンロボットインタラクション"
+  },
+  {
+    "role": "幹事",
+    "name": "伊藤 雄一",
+    "affiliation": "青山学院大学 理工学部",
+    "website": "https://x-lab.team",
+    "research": "無意識コンピューティング，入出力デバイス"
+  },
+  {
+    "role": "幹事",
+    "name": "鈴木 優",
+    "affiliation": "ノートルダム清心女子大学 情報デザイン学部 情報デザイン学科",
+    "website": "https://ulab.jp/",
+    "research": "インタラクションデザイン，動物，植物，生活支援"
+  },
+  {
+    "role": "幹事",
+    "name": "西田 健志",
+    "affiliation": "神戸大学 国際文化学研究科",
+    "website": "http://www2.kobe-u.ac.jp/~tnishida/index-jp.html",
+    "research": "大人数でのコミュニケーションシステム、消極的な人の支援、異文化コラボレーション"
+  },
+  {
+    "role": "幹事",
+    "name": "中村 聡史",
+    "affiliation": "明治大学 総合数理学部",
+    "website": "http://snakamura.org/",
+    "research": "ヒューマンインタフェース，ユビキタスコンピューティング，ウェアラブルコンピューティング，情報可視化，ウェブ"
+  },
+  {
+    "role": "幹事",
+    "name": "吉高 淳夫",
+    "affiliation": "北陸先端科学技術大学院大学 情報科学研究科",
+    "website": "http://awabi.jaist.ac.jp:8000/yoshitaka_lab/",
+    "research": "マルチメディア検索，実世界指向インタフェース，視線インタフェース，動画像検索／感性情報処理など"
+  },
+  {
+    "role": "幹事",
+    "name": "松村 耕平",
+    "affiliation": "立命館大学 情報理工学部",
+    "website": "http://playful.ist",
+    "research": "プレイフルネス、身体性認知科学"
+  },
+  {
+    "role": "幹事",
+    "name": "志築 文太郎",
+    "affiliation": "筑波大学 システム情報工学研究科 コンピュータサイエンス専攻",
+    "website": "http://www.iplab.cs.tsukuba.ac.jp/~shizuki/index-j.html",
+    "research": "ヒューマンコンピュータインタラクション，入力インタフェース"
+  },
+  {
+    "role": "幹事",
+    "name": "鳴海 紘也",
+    "affiliation": "慶應義塾大学 理工学部情報工学科",
+    "website": "https://narumi.me/",
+    "research": "デジタル・ファブリケーション，形状変化インタフェース"
+  },
+  {
+    "role": "幹事",
+    "name": "五十嵐 悠紀",
+    "affiliation": "お茶の水女子大学 理学部 情報科学科",
+    "website": "https://www.is.ocha.ac.jp/~yuki/index-j.html",
+    "research": "コンピュータグラフィックス，ユーザインタフェース"
+  },
+  {
+    "role": "運営委員",
+    "name": "小倉 加奈代",
+    "affiliation": "岩手県立大学 ソフトウェア情報学部",
+    "website": "http://souran.iwate-pu.ac.jp/html/200000020_ja.html",
+    "research": "CMC(Computer-Mediated Communication)，コミュニケーションデザイン，行動変容デザイン，情報セキュリティ心理学"
+  },
+  {
+    "role": "運営委員",
+    "name": "村尾 和哉",
+    "affiliation": "立命館大学 情報理工学部",
+    "website": "http://www.muraokazuya.net",
+    "research": "センサ情報処理"
+  },
+  {
+    "role": "運営委員",
+    "name": "東 孝文",
+    "affiliation": "東京電機大学 システムデザイン工学部デザイン工学科",
+    "website": null,
+    "research": "ヒューマンインタフェース，技能習得支援，コミュニケーションデザイン"
+  },
+  {
+    "role": "運営委員",
+    "name": "謝 浩然",
+    "affiliation": "北陸先端科学技術大学院大学 創造社会デザイン研究領域",
+    "website": "http://www.jaist.ac.jp/~xie/",
+    "research": "人間拡張，コンピュータグラフィックス，ユーザインタフェース"
+  },
+  {
+    "role": "運営委員",
+    "name": "川口 一画",
+    "affiliation": "筑波大学 システム情報系",
+    "website": null,
+    "research": "HCI, HRI, 遠隔コミュニケーション支援"
+  },
+  {
+    "role": "運営委員",
+    "name": "渡邉 拓貴",
+    "affiliation": "公立はこだて未来大学 システム情報科学部",
+    "website": "https://www.hwatanabe.com/",
+    "research": "ウェアラブルコンピューティング，ユビキタスコンピューティング，行動認識"
+  },
+  {
+    "role": "運営委員",
+    "name": "山中 祥太",
+    "affiliation": "LINEヤフー データサイエンス統括本部 LINEヤフー研究所",
+    "website": "https://sites.google.com/site/stymnk/",
+    "research": "ポインティング，ステアリング，タッチ入力，GUI，Human motor performance"
+  },
+  {
+    "role": "運営委員",
+    "name": "礒本 俊弥",
+    "affiliation": "無所属",
+    "website": "https://sites.google.com/view/toshiya-isomoto",
+    "research": "視線インタフェース"
+  },
+  {
+    "role": "運営委員",
+    "name": "白井 良成",
+    "affiliation": "同志社女子大学 学芸学部 メディア創造学科",
+    "website": null,
+    "research": null
+  },
+  {
+    "role": "運営委員",
+    "name": "高橋 英之",
+    "affiliation": "大阪大学/ATR",
+    "website": null,
+    "research": null
+  },
+  {
+    "role": "運営委員",
+    "name": "土田 修平",
+    "affiliation": "お茶の水女子大学",
+    "website": "https://shuhei2306.com/",
+    "research": "ダンス情報処理"
+  },
+  {
+    "role": "運営委員",
+    "name": "中村 嘉志",
+    "affiliation": "国士舘大学 理工学部 電子情報学系",
+    "website": "http://staff.aist.go.jp/nakamura-y/",
+    "research": "ユビキタス・コンピューティング，センサ・ネットワーク，位置情報システム，光デバイス，実世界指向インタラクション"
+  },
+  {
+    "role": "運営委員",
+    "name": "池松 香",
+    "affiliation": "LINEヤフー株式会社 データサイエンス統括本部 LINEヤフー研究所",
+    "website": "https://sites.google.com/view/ikema2",
+    "research": "入力インタフェース，デジタルファブリケーション"
+  },
+  {
+    "role": "運営委員",
+    "name": "木村 朝子",
+    "affiliation": "立命館大学 情報理工学部",
+    "website": "http://www.rm.is.ritsumei.ac.jp",
+    "research": "実世界指向インタフェース，対話デバイス，複合現実感"
+  },
+  {
+    "role": "運営委員",
+    "name": "山添 大丈",
+    "affiliation": "兵庫県立大学 工学研究科",
+    "website": null,
+    "research": null
+  },
+  {
+    "role": "運営委員",
+    "name": "久保 勇貴",
+    "affiliation": "NTT 人間情報研究所",
+    "website": "https://www.yukikubo.net/",
+    "research": "入力インタフェース，センシング"
+  },
+  {
+    "role": "運営委員",
+    "name": "大西 鮎美",
+    "affiliation": null,
+    "website": null,
+    "research": null
+  },
+  {
+    "role": "運営委員",
+    "name": "高嶋 和毅",
+    "affiliation": "芝浦工業大学 システム理工学部",
+    "website": null,
+    "research": null
+  },
+  {
+    "role": "運営委員",
+    "name": "真鍋 宏幸",
+    "affiliation": "芝浦工業大学 工学部情報・通信工学課程 情報工学コース",
+    "website": "http://pai.eng.shibaura-it.ac.jp/",
+    "research": "入力デバイス，生体信号，ウェアラブル，ユビキタス"
+  },
+  {
+    "role": "運営委員",
+    "name": "宮藤 詩緒",
+    "affiliation": null,
+    "website": null,
+    "research": null
+  },
+  {
+    "role": "運営委員",
+    "name": "高田 崚介",
+    "affiliation": "神戸市立工業高等専門学校 電子工学科",
+    "website": "https://rtakada.jp",
+    "research": "ヒューマンセンシング"
+  },
+  {
+    "role": "運営委員",
+    "name": "畑田 裕二",
+    "affiliation": "東京大学 大学院情報学環",
+    "website": "https://yunolv3.work/",
+    "research": "VR/AR, Embodiment, ナラティブ, 質的心理学"
+  }
+]

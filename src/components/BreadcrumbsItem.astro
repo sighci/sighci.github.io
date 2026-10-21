@@ -1,0 +1,4 @@
+---
+const {href,label,currentPage}=Astro.props;
+---
+<li>{currentPage ? <span aria-current="page">{label}</span> : <a href={href}>{label}</a>}</li>

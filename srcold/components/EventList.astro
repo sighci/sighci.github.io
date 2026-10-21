@@ -1,0 +1,58 @@
+---
+const posts = Object.values(import.meta.glob('../pages/event/*.md', { eager: true })).sort((a, b) => (a.url ?? '').localeCompare(b.url ?? ''));
+
+import PostUrl from './PostUrl.astro'
+---
+<article>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="date">開催日</th>
+                    <th class="name">名称</th>
+                    <th class="place">場所</th>
+                    <th class="theme">テーマ</th>
+                    <th class="status">状態</th>
+                </tr>
+            </thead>
+            <tbody>
+                {posts.slice(-5).map((post) => (
+                <tr>
+                    <td>{post.frontmatter.date}</td>
+                        <td><PostUrl post={post} /></td>
+                    <td>{post.frontmatter.place}</td> 
+                    <td>{post.frontmatter.theme}</td>                     
+                    <td>{post.frontmatter.status}</td>
+                </tr>
+                ))}
+            </tbody>
+        </table>
+    </div>
+</article>
+
+<style lang="scss">
+    table{
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+    th,td {
+      border:1px black solid;
+      height: 40px;
+      padding: 0.3rem 0.5rem;
+    }
+    .date {
+      width: 30%;
+    }
+    .name {
+      width: 20%;
+    }
+    .place {
+      width: 25%;
+    }
+    .theme {
+      width: 20%;
+    }    
+    .status {
+      width: 10%;
+    }
+</style>

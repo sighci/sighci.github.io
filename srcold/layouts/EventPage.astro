@@ -1,0 +1,40 @@
+---
+import DefaultLayout from './DefaultLayout.astro'
+const content = Astro.props.frontmatter ?? Astro.props.content ?? {};
+
+title: "第100回研究会"
+place: "アートホテル石垣島＆オンライン"
+date: "2022/8/9 - 10"
+theme: ""
+status: "受付中"
+---
+<DefaultLayout>
+  <section class="margin-64">
+    <div class="container">
+      <div class="grid">
+        <div class="small-12 space-content">
+          <h1>{content.title}</h1>
+        </div>
+        <div class="small-12 space-content">
+          <h2>概要</h2>
+          <p>開催期間： {content.date}</p>
+          <p>開催場所： {content.place}<br>
+            　　　　　{content.place_detail}</p>
+          <p>申込締切： {content.app_deadline}</p>
+          <p>原稿締切： {content.paper_deadline}</p>
+        </div>
+        <!-- <div class="small-12 medium-10 offset-medium-1 space-content"> -->
+        <div class="small-12 space-content">
+          <h2>発表申込と論文投稿のご案内</h2>
+          <slot />
+        </div>
+      </div>
+    </div>
+  </section>
+</DefaultLayout>
+
+<style lang="scss">
+p{
+  font-size: 120%;
+}
+</style>

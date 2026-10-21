@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+const events = (await getCollection('events')).sort((a, b) => a.data.number - b.data.number);
+---
+<div class="table-wrapper">
+<table>
+  <thead><tr><th>開催日</th><th>名称</th><th>場所</th><th>テーマ</th><th>状態</th></tr></thead>
+  <tbody>{events.map(event => <tr>
+    <td>{event.data.date}</td>
+    <td><a href={`/events/sig/${event.data.number}/`}>第{event.data.number}回研究会</a></td>
+    <td>{event.data.place}</td><td>—</td><td>{event.data.status}</td>
+  </tr>)}</tbody>
+</table>
+</div>
+<style>
+.table-wrapper {overflow-x:auto;}
+table {width:100%;border-collapse:collapse;}
+th,td {border:1px solid var(--neutral-400,#aaa);padding:.65rem;text-align:left;vertical-align:top;}
+th {white-space:nowrap;}
+</style>

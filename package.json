@@ -1,0 +1,21 @@
+{
+  "name": "sighci-website",
+  "description": "SIGHCI website migrated from Astro 1 to Astro 7",
+  "version": "2.0.0",
+  "author": "Mark Teekman",
+  "homepage": "https://accessible-astro.dev",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^7.4.0",
+    "sass": "^1.93.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22.22.0"
+  }
+}

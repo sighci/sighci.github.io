@@ -1,0 +1,8 @@
+<button id="darkmode-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+<script>
+const button = document.querySelector('#darkmode-toggle');
+const apply = (dark) => { document.documentElement.classList.toggle('darkmode', dark); button?.setAttribute('aria-pressed', String(dark)); };
+apply(localStorage.getItem('darkmode') === 'true');
+button?.addEventListener('click', () => { const dark = !document.documentElement.classList.contains('darkmode'); apply(dark); localStorage.setItem('darkmode', String(dark)); });
+</script>
+<style>button{cursor:pointer;border:1px solid currentColor;background:transparent;color:inherit;padding:.3rem .65rem;border-radius:4px;font-size:1.25rem}</style>
