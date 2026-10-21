@@ -1,0 +1,26 @@
+---
+import DefaultLayout from '../../../layouts/DefaultLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const events = await getCollection('events');
+  return events.map(event => ({
+    params: { number: String(event.data.number) },
+    props: { event },
+  }));
+}
+
+const { event } = Astro.props;
+const { Content } = await render(event);
+---
+<DefaultLayout title={`第${event.data.number}回HCI研究会`}>
+  <section class="margin-64">
+    <div class="container">
+      <article class="space-content">
+        <h1>第{event.data.number}回 ヒューマンコンピュータインタラクション研究会</h1>
+        <Content />
+        <p><a href="/events/">研究会・イベント一覧に戻る</a></p>
+      </article>
+    </div>
+  </section>
+</DefaultLayout>

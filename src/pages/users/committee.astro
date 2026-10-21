@@ -1,0 +1,39 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+import committee from '../../data/committee.json';
+
+const groups = ['主査', '幹事', '運営委員'];
+---
+<DefaultLayout title="研究会運営委員会" description="情報処理学会ヒューマンコンピュータインタラクション研究会（SIGHCI）の運営委員一覧">
+  <section class="margin-64">
+    <div class="container space-content">
+      <h1>運営委員会</h1>
+      {groups.map((role) => (
+        <section class="committee-group" aria-label={role}>
+          <h2>{role}</h2>
+          <ul class="committee-list">
+            {committee.filter((member) => member.role === role).map((member) => (
+              <li class="committee-member">
+                <h3>{member.name}</h3>
+                {member.affiliation && <p>{member.affiliation}</p>}
+                {member.website && (
+                  <p><a href={member.website} rel="noopener noreferrer">Webサイト</a></p>
+                )}
+                {member.research && <p class="research">研究分野：{member.research}</p>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </section>
+</DefaultLayout>
+
+<style>
+  .committee-group { margin-block: 2.5rem; }
+  .committee-list { list-style: none; padding-inline-start: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: 1rem; }
+  .committee-member { border: 1px solid var(--neutral-400, #c8c8c8); border-radius: 6px; padding: 1rem 1.2rem; }
+  .committee-member h3 { margin-block: 0 .5rem; }
+  .committee-member p { margin-block: .4rem; overflow-wrap: anywhere; }
+  .research { font-size: .9rem; }
+</style>
