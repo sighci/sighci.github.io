@@ -1,5 +1,0 @@
----
-const { post } = Astro.props;
-const post_url = ((post.frontmatter.url ?? "").length > 0) ? post.frontmatter.url : post.url;
----
-<a href={post_url}>{post.frontmatter.title}</a>
