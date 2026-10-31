@@ -12,15 +12,33 @@ export async function getStaticPaths() {
 
 const { event } = Astro.props;
 const { Content } = await render(event);
+const formatDate = (date) => {
+  const [year, month, day] = date.split('-').map(Number);
+  return `${year}年${month}月${day}日`;
+};
+const period = event.data.startDate === event.data.endDate
+  ? formatDate(event.data.startDate)
+  : `${formatDate(event.data.startDate)}〜${formatDate(event.data.endDate)}`;
 ---
-<DefaultLayout title={`第${event.data.number}回HCI研究会`}>
+<DefaultLayout title={event.data.title}>
   <section class="margin-64">
     <div class="container">
       <article class="space-content">
-        <h1>第{event.data.number}回 ヒューマンコンピュータインタラクション研究会</h1>
+        <h1>{event.data.title}</h1>
+        <dl class="event-overview">
+          <div><dt>開催日</dt><dd>{period}</dd></div>
+          <div><dt>開催場所</dt><dd>{event.data.location}</dd></div>
+          {event.data.theme && <div><dt>テーマ</dt><dd>{event.data.theme}</dd></div>}
+        </dl>
         <Content />
         <p><a href="/events/">研究会・イベント一覧に戻る</a></p>
       </article>
     </div>
   </section>
 </DefaultLayout>
+<style>
+  .event-overview { margin: 1.5rem 0 2rem; }
+  .event-overview div { display: flex; flex-wrap: wrap; gap: .75rem; padding: 0rem 0; margin: 12;}
+  .event-overview dt { font-weight: 700; min-width: 6em; }
+  .event-overview dd { margin: 0; flex: 1; }
+</style>

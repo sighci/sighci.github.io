@@ -1,20 +1,76 @@
 ---
 import { getCollection } from 'astro:content';
-const events = (await getCollection('events')).sort((a, b) => a.data.number - b.data.number);
+const { past = false, showStatus = false } = Astro.props;
+// トップページだけは、終了後3か月以内の研究会も表示する。
+// それ以外の一覧の従来の区分は変更しない。
+const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Tokyo' });
+const addCalendarMonths = (isoDate, months) => {
+  const [year, month, day] = isoDate.split('-').map(Number);
+  const firstOfTargetMonth = new Date(Date.UTC(year, month - 1 + months, 1));
+  const lastDay = new Date(Date.UTC(firstOfTargetMonth.getUTCFullYear(), firstOfTargetMonth.getUTCMonth() + 1, 0)).getUTCDate();
+  const target = new Date(Date.UTC(firstOfTargetMonth.getUTCFullYear(), firstOfTargetMonth.getUTCMonth(), Math.min(day, lastDay)));
+  return target.toISOString().slice(0, 10);
+};
+const events = (await getCollection('events'))
+  .filter(event => showStatus
+    ? today <= addCalendarMonths(event.data.endDate, 3)
+    : (past ? event.data.number <= 219 : event.data.number >= 220))
+  .sort((a, b) => showStatus
+    ? a.data.startDate.localeCompare(b.data.startDate)
+    : (past ? b.data.number - a.data.number : a.data.number - b.data.number));
+
+// 終了日の翌日以降は必ず「終了しました」。それ以外は編集者のstatusを使用。
+const getStatus = ({ endDate, status }) =>
+  today > endDate ? '終了しました' : (status?.trim() || '開催予定');
+
+const formatDate = (iso) => {
+  const [y, m, d] = iso.split('-').map(Number);
+  const weekday = ['日', '月', '火', '水', '木', '金', '土'][new Date(Date.UTC(y, m - 1, d)).getUTCDay()];
+  return `${y}年${m}月${d}日(${weekday})`;
+};
+const formatPeriod = (start, end) => {
+  if (start === end) return formatDate(start);
+  const [sy, sm] = start.split('-').map(Number);
+  const [ey, em, ed] = end.split('-').map(Number);
+  const eWeekday = ['日', '月', '火', '水', '木', '金', '土'][new Date(Date.UTC(ey, em - 1, ed)).getUTCDay()];
+  if (sy === ey && sm === em) return `${formatDate(start)}～${ed}日(${eWeekday})`;
+  if (sy === ey) return `${formatDate(start)}～${em}月${ed}日(${eWeekday})`;
+  return `${formatDate(start)}～${formatDate(end)}`;
+};
 ---
-<div class="table-wrapper">
-<table>
-  <thead><tr><th>開催日</th><th>名称</th><th>場所</th><th>テーマ</th><th>状態</th></tr></thead>
-  <tbody>{events.map(event => <tr>
-    <td>{event.data.date}</td>
-    <td><a href={`/events/sig/${event.data.number}/`}>第{event.data.number}回研究会</a></td>
-    <td>{event.data.place}</td><td>—</td><td>{event.data.status}</td>
-  </tr>)}</tbody>
-</table>
+<div class:list={['table-wrapper', { 'with-status': showStatus }]}>
+  <table>
+    {showStatus && <colgroup>
+      <col class="col-date" />
+      <col class="col-name" />
+      <col class="col-location" />
+      <col class="col-theme" />
+      <col class="col-status" />
+    </colgroup>}
+    <thead><tr><th>開催日</th><th>名称</th><th>場所</th><th>テーマ</th>{showStatus && <th>状態</th>}</tr></thead>
+    <tbody>{events.map(event => <tr>
+      <td>{formatPeriod(event.data.startDate, event.data.endDate)}</td>
+      <td><a href={`/events/sig/${event.data.number}/`}>{event.data.title}</a></td>
+      <td>{event.data.location}</td>
+      <td>{event.data.theme || '—'}</td>
+      {showStatus && <td class="status-cell">{getStatus(event.data)}</td>}
+    </tr>)}</tbody>
+  </table>
 </div>
 <style>
 .table-wrapper {overflow-x:auto;}
 table {width:100%;border-collapse:collapse;}
 th,td {border:1px solid var(--neutral-400,#aaa);padding:.65rem;text-align:left;vertical-align:top;}
 th {white-space:nowrap;}
+/* ホームだけ列幅を明示。名称・テーマは従来より少しコンパクトにする。 */
+.with-status .col-date {width:27%;}
+.with-status .col-name {width:19%;}
+.with-status .col-location {width:28%;}
+.with-status .col-theme {width:11%;}
+.with-status .col-status {width:15%;}
+.with-status td {overflow-wrap:anywhere;}
+.with-status .status-cell {white-space:nowrap;}
+@media (max-width:700px) {
+  .with-status table {min-width:850px;}
+}
 </style>
