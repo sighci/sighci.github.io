@@ -16,9 +16,22 @@ const formatDate = (date) => {
   const [year, month, day] = date.split('-').map(Number);
   return `${year}年${month}月${day}日`;
 };
-const period = event.data.startDate === event.data.endDate
-  ? formatDate(event.data.startDate)
-  : `${formatDate(event.data.startDate)}〜${formatDate(event.data.endDate)}`;
+const { dateText, startDate, endDate } = event.data;
+
+const period = dateText?.trim()
+  || (
+    startDate && endDate
+      ? (
+          startDate === endDate
+            ? formatDate(startDate)
+            : `${formatDate(startDate)}〜${formatDate(endDate)}`
+        )
+      : (
+          startDate
+            ? formatDate(startDate)
+            : '日程未定'
+        )
+  );
 ---
 <DefaultLayout title={event.data.title}>
   <section class="margin-64">

@@ -11,17 +11,31 @@ const addCalendarMonths = (isoDate, months) => {
   const target = new Date(Date.UTC(firstOfTargetMonth.getUTCFullYear(), firstOfTargetMonth.getUTCMonth(), Math.min(day, lastDay)));
   return target.toISOString().slice(0, 10);
 };
+
 const events = (await getCollection('events'))
-  .filter(event => showStatus
-    ? today <= addCalendarMonths(event.data.endDate, 3)
-    : (past ? event.data.number <= 219 : event.data.number >= 220))
-  .sort((a, b) => showStatus
-    ? a.data.startDate.localeCompare(b.data.startDate)
-    : (past ? b.data.number - a.data.number : a.data.number - b.data.number));
+  .filter(event => {
+    const endDate = event.data.endDate;
+
+    // トップページ：終了後3か月まで表示
+    if (showStatus) {
+      return !endDate || today <= addCalendarMonths(endDate, 3);
+    }
+
+    // 開催済一覧・開催予定一覧
+    const isPast = !!endDate && endDate < today;
+    return past === isPast;
+  })
+  .sort((a, b) =>
+    past && !showStatus
+      ? b.data.number - a.data.number
+      : a.data.number - b.data.number
+  );
 
 // 終了日の翌日以降は必ず「終了しました」。それ以外は編集者のstatusを使用。
 const getStatus = ({ endDate, status }) =>
-  today > endDate ? '終了しました' : (status?.trim() || '開催予定');
+  endDate && today > endDate
+    ? '終了しました'
+    : (status?.trim() || '開催予定');
 
 const formatDate = (iso) => {
   const [y, m, d] = iso.split('-').map(Number);
@@ -37,6 +51,23 @@ const formatPeriod = (start, end) => {
   if (sy === ey) return `${formatDate(start)}～${em}月${ed}日(${eWeekday})`;
   return `${formatDate(start)}～${formatDate(end)}`;
 };
+const getEventPeriod = (event) => {
+  const { dateText, startDate, endDate } = event.data;
+
+  if (dateText?.trim()) {
+    return dateText.trim();
+  }
+
+  if (startDate && endDate) {
+    return formatPeriod(startDate, endDate);
+  }
+
+  if (startDate) {
+    return formatDate(startDate);
+  }
+
+  return '日程未定';
+};
 ---
 <div class:list={['table-wrapper', { 'with-status': showStatus }]}>
   <table>
@@ -49,7 +80,7 @@ const formatPeriod = (start, end) => {
     </colgroup>}
     <thead><tr><th>開催日</th><th>名称</th><th>場所</th><th>テーマ</th>{showStatus && <th>状態</th>}</tr></thead>
     <tbody>{events.map(event => <tr>
-      <td>{formatPeriod(event.data.startDate, event.data.endDate)}</td>
+      <td>{getEventPeriod(event)}</td>
       <td><a href={`/events/sig/${event.data.number}/`}>{event.data.title}</a></td>
       <td>{event.data.location}</td>
       <td>{event.data.theme || '—'}</td>
